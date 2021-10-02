@@ -1,0 +1,24 @@
+{
+  "extends": ["eslint:recommended", "prettier"],
+  "parser": "babel-eslint",
+
+  "overrides": [
+    {
+      "files": ["**/*.js", "**/*.mjs"],
+      "env": { "es2017": true },
+      "rules": { "no-unused-vars": 0 }
+    },
+    {
+      "files": ["client/*.js"],
+      "env": { "browser": true }
+    },
+    {
+      "files": ["client/service-worker.js"],
+      "env": { "serviceworker": true }
+    },
+    {
+      "files": ["server/*.mjs"],
+      "env": { "node": true }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "service-worker-web-push-example",
+  "version": "0.1.0",
+  "author": {
+    "name": "Pirmin Rehm",
+    "url": "https://github.com/pirminrehm/"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/pirminrehm/service-worker-web-push-example.git"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node server/server.mjs",
+    "serve": "http-server -c-1 client"
+  },
+  "dependencies": {
+    "fastify": "^3.21.6",
+    "fastify-cors": "^6.0.2",
+    "http-server": "^13.0.2",
+    "web-push": "^3.4.5"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1"
+  },
+  "engines": {
+    "node": "^16.0.0"
+  }
+}

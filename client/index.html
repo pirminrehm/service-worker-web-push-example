@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>service worker experiment</title>
+    <link rel="stylesheet" href="main.css" />
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <h1>Web Push API Example including Service Worker and minimalistic Application Server</h1>
+
+    <p>Open the dev tools to get more insights in the console.</p>
+    This demo is using the
+    <a target="_blanc" rel="noopener noreferrer" href="https://www.npmjs.com/package/web-push">web-push</a> lib on
+    server side and
+    <a
+      target="_blanc"
+      rel="noopener noreferrer"
+      href="https://blog.mozilla.org/services/2016/08/23/sending-vapid-identified-webpush-notifications-via-mozillas-push-service/"
+      >VAPID</a
+    >.
+
+    <h2>Step 1: Get Notification API Permission</h2>
+    <p>First, we need the users permission for showing notifications.</p>
+    <button id="btn-getPermission">getPermission()</button>
+
+    <h2>Step 2: Get Push API Subscription</h2>
+    <p>
+      To generate a subscription, a public key must be provided. This public key is fetched from our server, where a key
+      pair is stored. With the corresponding private key, the push message will be later encrypted.
+    </p>
+    <button id="btn-getSubscription"><code>getSubscription()</code></button>
+
+    <h2>Step 3: Send Subscription Info to Server</h2>
+    <p>
+      The subscription object contains a browser specific and unique Push Service endpoint URL to which we can later
+      send messages from the server. The current server implementation is very simple, it can only store one
+      subscription at all. On the browser side, we're done so far.
+    </p>
+    <button id="btn-sendToServer"><code>sendToServer()</code></button>
+
+    <h2>Step 4+: Sending Push Messages from our Server</h2>
+    <p>
+      Now we can send push messages from outside of browser to the user, even if this site is closed but the browser is
+      running. You may try this out via the <em>send</em> endpoint of our application server using
+      <a target="_blanc" rel="noopener noreferrer" href="https://www.postman.com/">Postman</a> or any other tool:
+      <br />
+      <code>
+        POST http://localhost:3000/send <br />
+        { "message": "hello world" }
+      </code>
+      <br />
+      <br />
+      For simplicity, you can also send the POST request from this site to the application server. In further course the
+      server will not send the push messages directly to an user's browser, but to the browser vendor Push Service
+      endpoint.
+      <br />
+      You may also try to close this tab now, but not the browser and then click the button below from a different
+      browser. Even if the page is not opened, a message will be displayed.
+    </p>
+    <label for="message">Message</label><br />
+    <input id="message" type="text" value="Hello Push API" /> <br />
+    <button id="btn-sendMessageViaServer"><code>sendMessageViaServer()</code></button>
+
+    <h2>Spike: Show Notification directly</h2>
+    <p>
+      While the Web Push API is designed to send notifications from an application server, we can also show
+      notifications without a server from the browser directly.
+    </p>
+    <button id="btn-displayNotificationDirectly"><code>displayNotificationDirectly()</code></button>
+  </body>
+</html>

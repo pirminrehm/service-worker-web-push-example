@@ -1,0 +1,43 @@
+body {
+  margin: 2rem;
+  max-width: 40rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  margin: 0.5rem 0;
+  border-radius: 0;
+  background-color: rgb(21, 126, 158);
+  color: white;
+  border: 0;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(16, 95, 119);
+}
+
+h1,
+h2 {
+  margin: 2rem 0 0;
+}
+
+input {
+  padding: 0.5rem;
+  margin: 0.25rem 0 1rem 0;
+  border-radius: 0;
+  border: 1px solid lightgrey;
+  border-bottom-width: 3px;
+}
+
+input:hover,
+input:focus,
+input:focus-visible {
+  border-color: rgb(21, 126, 158);
+  outline: none;
+}
+
+label {
+  font-size: 0.8rem;
+}
