@@ -6,8 +6,7 @@ It consists of a client with a Service Worker to register for push messages and 
 ## Getting Started
 
 - clone the repo and install dependencies
-- run 'npm run serve` for the client
-- run 'npm run start` for the server in parallel
+- run 'npm run start` for the server including serving the client
 - go to http://localhost:8080 and read on there
 
 ## Prerequisites

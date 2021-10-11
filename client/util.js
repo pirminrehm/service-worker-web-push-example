@@ -1,6 +1,6 @@
 import { urlB64ToUint8Array } from './urlB64ToUint8Array.js';
 
-const serverUrl = `http://${window.location.hostname}:3000`;
+const serverUrl = window.location.origin;
 
 export const getPermission = () => {
   Notification.requestPermission(function (status) {
@@ -38,7 +38,10 @@ export const sendToServer = async () => {
       'Content-Type': 'application/json',
     },
   })
-    .then((res) => console.log('successfully send subscription to server'))
+    .then(async (res) => {
+      const text = await res.text();
+      console.log(res.status < 400 ? 'successfully send subscription to server' : text);
+    })
     .catch((err) => console.error('error while sending to server', err));
 };
 
@@ -53,7 +56,10 @@ export const sendMessageViaServer = async () => {
       'Content-Type': 'application/json',
     },
   })
-    .then((res) => console.log('successfully send message via server to push service'))
+    .then(async (res) => {
+      const text = await res.text();
+      console.log(res.status < 400 ? 'successfully send message via server to push service' : text);
+    })
     .catch((err) => console.error('error while sending to server', err));
 };
 
